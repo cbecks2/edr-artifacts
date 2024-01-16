@@ -1,9 +1,12 @@
 # Tanium
 
+You are likely to have a hard timing hunting on this behavior given who the tool operates. Nonetheless, we are including it in the project in case you find it useful.
+
 ## 1. Network Telemetry
-
-
-
+```
+*.cloud.tanium.com (if cloud hosted)
+*.distribute.tanium.com (if cloud hosted)
+```
 
 
 ## 2. Process Ancestry
