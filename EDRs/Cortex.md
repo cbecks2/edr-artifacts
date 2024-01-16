@@ -18,3 +18,4 @@ A brief description about the tool and various options given to the tool adminis
 
 
 ## 4. References
+* https://docs-cortex.paloaltonetworks.com/r/Cortex-XDR/Cortex-XDR-Pro-Administrator-Guide/Initiate-a-Live-Terminal-Session
