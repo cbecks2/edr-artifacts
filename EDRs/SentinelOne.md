@@ -24,8 +24,6 @@ You can easily identify Remote Shell Commands through the SentinelRSHUser that g
 
 Live Response:
 ```
-C:\ProgramData\CarbonBlack\Logs\LiveResponse.log
-
 C:\ProgramData\Sentinel\rshTranscripts
 ```
 
