@@ -1,6 +1,6 @@
 # Tanium
 
-You are likely to have a hard timing hunting on this behavior given who the tool operates. Nonetheless, we are including it in the project in case you find it useful.
+You are likely to have a hard timing hunting on this behavior given how the tool operates. Nonetheless, we are including it in the project in case you find it useful.
 
 ## 1. Network Telemetry
 ```
