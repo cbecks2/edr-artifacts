@@ -1,4 +1,9 @@
-# Tool Name
+# Carbon Black Cloud
+
+Carbon Black Cloud offers two (2) features to interact with an endpoint:\
+Live Response, which is a remote shell and available in the Endpoint Standard and Entreprise EDR SKUs.\
+Live Query, which is Carbon Black's "wrapper" around osquery which lets you launch osquery queries on an endpoint and get the results back in the console. Available only if you have the Audit & Remediation SKU.
+
 
 ## 1. Network Telemetry
 ```
@@ -78,3 +83,5 @@ These logs can be obtained by using the "C:\Program Files\Confer\RepCLI.exe" cap
 ## 4. References
 
 https://docs.vmware.com/en/VMware-Carbon-Black-Cloud/services/cbc-sensor-installation-guide/GUID-06D2CB73-968A-466E-BD69-B7480CBA800A.html
+https://docs.vmware.com/en/VMware-Carbon-Black-Cloud/services/carbon-black-cloud-user-guide/GUID-7399B083-D65C-40ED-A831-460F7216F748.html#:~:text=To%20use%20Live%20Response%2C%20users,policy%20with%20Live%20Response%20enabled.&text=Click%20Enforce%2C%20then%20Policies.,Select%20a%20policy%20group.
+https://docs.vmware.com/en/VMware-Carbon-Black-Cloud/services/carbon-black-cloud-user-guide/GUID-129D4F84-1BF0-49F3-BF95-83002FD63217.html
