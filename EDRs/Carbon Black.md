@@ -27,8 +27,10 @@ Ultimately, the Process Path will be the path of the binary and/or command that 
 
 #### 2.1.1. BladeRunner.exe
 The /workingDir value depend on which directory the user is in when in the Live Response session, with the default being C:\WINDOWS\System32. That directory can be changed through Live Response's cd command.\
+
 The /outFile value is present when an execfg command is used in Live Response. This command returns the output of the Live Response command to the console. The output of the command is saved to that file which is then downloaded by Live Response and the content displayed in the console.\
-It is unknown (for now) if the /outFileMaxSize value can be changed at a sensor level directly.\
+
+It is unknown (for now) if the /outFileMaxSize value can be changed at a sensor level directly.
 
 ### 2.2. Live Query
 ```
@@ -51,11 +53,14 @@ Created by - C:\Program Files\Confer\Blades\LiveQuery\osqueryi.exe
 ```
 ##### 2.2.1. BladeRunner.exe
 $QUERY_ID refers to the ID of the query that is being launched.\
+
 It is unknown (for now) if the various CPU, RAM and execution time parameters can be changed at a sensor level directly.\
 
 ##### 2.2.2. osqueryi.exe
 For osqueryi.exe, $QUERY_ID refers to the ID of the query that is being launched. It should be the same as one in BladeRunner.exe.\
+
 For osqueryi.exe, $QUERY refers to the query that is being executed through Live Query. For instance, it could be: SELECT * FROM file WHERE path LIKE "C:\Tools\%%";\
+
 For the etilqs file, it has not been investigated yet. It is suspected to hold the results of the Live Query query.\
 
 ## 3. Host Artifacts
@@ -65,6 +70,7 @@ C:\ProgramData\CarbonBlack\Logs\LiveQuery.log
 C:\ProgramData\CarbonBlack\Logs\LiveResponse.log
 ```
 LiveQuery.log is a log that holds all the queries that were executed on the endpoint through Live Query.\
+
 LiveResponse.log is a log that holds all the commands that were executed on the endpoint through Live Response.\
 
 These logs can be obtained by using the "C:\Program Files\Confer\RepCLI.exe" capture command, which creates an archive called psc_sensor.zip. This archive holds the Logs folder in which these logs are located.\
