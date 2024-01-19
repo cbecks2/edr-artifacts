@@ -1,8 +1,8 @@
 # SentinelOne
 
 SentinelOne offers two (2) features to interact with an endpoint:
-Remote Shell (RSH), which drops the user in a PowerShell console shell. In our testing, even if PowerShell Core (6+, 7+) is installed on Windows, you get dropped in a PowerShell 5+ console.
-Remote Script Orchestration (RSO), which allows the user to execute various scripts on remote endpoint(s). For instance, PowerShell scripts (.ps1) on Windows hosts.
+* Remote Shell (RSH), which drops the user in a PowerShell console shell. In our testing, even if PowerShell Core (6+, 7+) is installed on Windows, you get dropped in a PowerShell 5+ console.
+* Remote Script Orchestration (RSO), which allows the user to execute various scripts on remote endpoint(s). For instance, PowerShell scripts (.ps1) on Windows hosts.
 
 ## 1. Network Telemetry
 
