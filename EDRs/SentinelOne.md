@@ -12,22 +12,32 @@ Remote Script Orchestration (RSO), which allows the user to execute various scri
 
 When you start a Remote Shell session on an endpoint, on Windows, a user called SentinelRSHUser gets used. Therefore, it is easy to search for any command that may have been executed through Remote Shell. Simply look for any process launched by that user (e.g.: DESKTOP\SentinelRSHUser).
 ```
-Grandparent Process Path - C:\Program Files\SentinelOne\SentinelOne Agent $VERSION\SentinelAgent.exe
+Grandparent Process Path - C:\Program Files\SentinelOne\Sentinel Agent $VERSION\SentinelAgent.exe
+Grandparent Process CommandLine - "C:\Program Files\SentinelOne\Sentinel Agent $VERSION\SentinelAgent.exe"
 
-Parent Process Path - C:\Program Files\SentinelOne\SentinelOne Agent $VERSION\SentinelRemoteShellHost.exe
-Parent Process CommandLine - "C:\Program Files\SentinelOne\SentinelOne Agent $VERSION\SentinelRemoteShellHost.exe" --rsh {0-9}[2] {0-9}[2] "\"C:\WINDOWS\system32\cmd.exe\" /c C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NoExit -EncodedCommand aQBmACAA...
+Parent Process Path - C:\Program Files\SentinelOne\Sentinel Agent $VERSION\SentinelRemoteShellHost.exe
+Parent Process CommandLine - "C:\Program Files\SentinelOne\Sentinel Agent $VERSION\SentinelRemoteShellHost.exe" --rsh {0-9}[2] {0-9}[2] "\"C:\WINDOWS\system32\cmd.exe\" /c C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -NoProfile -NoExit -EncodedCommand aQBmACAA...
 
 Process Path - C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 Process CommandLine - "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -NoExit -EncodedCommand aQBmACAA...
 
 Child Process Path - *user input dependent*
+Child Process CommandLine - *user input dependent*
 ```
 $VERSION refers to the version of the SentinelOne Agent that is installed, e.g.: 23.1.5.886.
 
 ### 2.2. Remote Script Orchestration (RSO)
 ```
-TO DO
+Grandparent Process Path - C:\Program Files\SentinelOne\Sentinel Agent $VERSION\SentinelAgent.exe
+Grandparent Process CommandLine - "C:\Program Files\SentinelOne\Sentinel Agent $VERSION\SentinelAgent.exe"
+
+Parent Process Path - C:\Program Files\SentinelOne\Sentinel Agent $VERSION\Addons\AddonHost.exe
+Parent Process CommandLine - "C:\Program Files\SentinelOne\Sentinel Agent $VERSION\Addons\AddonHost.exe" -e {0-9}[4]
+
+Process Path - C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process CommandLine - "C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe" -executionpolicy bypass -NonInteractive "C:\ProgramData\Sentinel\Addons\SentinelRSO\Script\$RSO_SCRIPT.ps1 ; exit $LASTEXITCODE"
 ```
+$RSO_SCRIPT refers to the name of the script that is being launched through RSO, e.g.: Get-WindowsServices.ps1.
 
 ## 3. Host Artifacts
 
