@@ -11,6 +11,7 @@ You are likely to have a hard timing hunting on this behavior given how the tool
 
 ## 2. Process Ancestry
 
+Windows:
 ```
 Grandparent Process Path: C:\Program Files (x86)\Tanium\Tanium Client\TaniumClient.exe
 Grandparent Process CommandLine: "C:\Program Files (x86)\Tanium\Tanium Client\TaniumClient.exe" -c
@@ -19,6 +20,22 @@ Grandparent Process CommandLine: "C:\Program Files (x86)\Tanium\Tanium Client\Ta
 Parent Process Path: C:\Program Files (x86)\Tanium\Tanium Client\TaniumClient.exe
 Parent Process CommandLine: "C:\Program Files (x86)\Tanium\Tanium Client\TaniumClient.exe" -c
 
+
+Process Path: *user input dependent*
+Process CommandLine: *user input dependent*
+```
+
+Mac:
+
+This may differ depending on what tool you use to view Mac Process Trees.
+
+```
+Grandparent Process Path: /Library/Tanium/TaniumClient/TaniumClient
+Grandparent Process CommandLine: /Library/Tanium/TaniumClient/TaniumClient -d
+
+
+Parent Process Path: /Library/Tanium/TaniumClient/TaniumClient
+Parent Process CommandLine: /Library/Tanium/TaniumClient/TaniumClient -c
 
 Process Path: *user input dependent*
 Process CommandLine: *user input dependent*
