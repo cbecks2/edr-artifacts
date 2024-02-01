@@ -16,6 +16,8 @@ I personally have only seen false positives from this CLSID, but it was included
 
 
 
+Windows:
+
 
 ```
 Grandparent Process Path: C:\Windows\system32\svchost.exe
@@ -32,7 +34,124 @@ Parent Process CommandLine: C:\WINDOWS\system32\DllHost.exe /Processid:{338B40F9
 Process Path: *user input dependent*
 Process CommandLine: *user input dependent*
 ```
+&nbsp;
 
+Mac:
+
+
+This may differ depending on what tool you use to view Mac Process Trees.
+
+&nbsp;
+
+Run Script:
+```
+Grandarent Process Path: /Library/SystemExtensions/<system extension guid>/com.crowdstrike.falcon.Agent.systemextension/Contents/MacOS/com.crowdstrike.falcon.Agent
+Grandparent Process CommandLine: /Library/SystemExtensions/<system extension guid>/com.crowdstrike.falcon.Agent.systemextension/Contents/MacOS/com.crowdstrike.falcon.Agent
+
+Parent Process Path: /bin/zsh
+Parent Process CommandLine:
+/bin/zsh -c #!/bin/zsh
+# SYNOPSIS
+#    Run a zsh script with specified command line and timeout
+# DESCRIPTION
+#   CrowdStrike Real Time Response command
+# PARAMETER WD
+#    Current working directory
+# PARAMETER Param1
+#    Script body - Required
+# PARAMETER Param2
+#    Command line sent to script
+# PARAMETER Param3
+#    Local path - path to local file to be used as script body
+# PARAMETER Param4
+#    Timeout in seconds
+# NOTES
+#    File Name  : runscript.sh
+#    Contact    : support@crowdstrike.com
+#    Copyright  : CrowdStrike 2020
+# LINK
+#    https://www.crowdstrike.com/
+
+set -euo pipefail
+
+function err_exit {
+    >&2 echo "$1"
+    exit
+}
+
+# following Windows behavior where HostPath clobbers Raw
+if [ -n "$3" ]; then
+    if ! [ -f "$3" ] || ! [ -r "$3" ]; then
+        err_exit "Cannot read file specified by -HostPath."
+    fi
+    if ! grep -qI '' "$3"; then
+        err_exit "File specified by -HostPath must not be binary. Use run command instead."
+    fi
+    SCRIPT=$(<${3})
+elif [ -n "$1" ]; then
+    SCRIPT="$1"
+else
+    err_exit "Either -Raw or -HostPath is required."
+fi
+
+COMMAND_LINE="$2"
+
+TIMEOUT="60"
+if [ -n "$4" ]; then
+    case $4 in
+    ''|*[!0-9]*)
+        err_exit "-Timeout must be a positive integer."
+        ;;
+     *)
+        TIMEOUT=$4
+        ;;
+    esac
+fi
+
+# "z" will ensure that arguments are separated, respecting escape sequences
+# "Q" will strip off outer quotes added when we set COMMAND_LINE above
+/bin/zsh -c "$SCRIPT" /bin/zsh ${(Q)${(z)COMMAND_LINE}} &
+pid=$!
+
+waited=0
+wait_interval=0.1
+print_interval=5
+while kill -0 $pid 2>/dev/null ; do
+    if ((waited * wait_interval >= TIMEOUT)); then
+        kill -9 $pid >/dev/null 2>&1
+        err_exit "Timed out waiting for script to exit."
+    fi
+    if ((waited > 0 && waited * wait_interval % print_interval == 0)); then
+        LC_ALL=en_US.UTF-8 printf %b '\u200b'
+    fi
+    /bin/sleep $wait_interval
+    ((waited += 1))
+done /bin/zsh *user input here*
+
+
+Process Path: *user dependent*
+Process CommandLine: *user dependent*
+```
+&nbsp;
+
+Put File:
+```
+Parent Process Path: /sbin/launchd
+Parent Process CommandLine: /sbin/launchd
+
+
+Process Path: /Library/SystemExtensions/<system extension guid>/com.crowdstrike.falcon.Agent.systemextension/Contents/MacOS/com.crowdstrike.falcon.Agent
+Process CommandLine: /Library/SystemExtensions/<system extension guid>/com.crowdstrike.falcon.Agent.systemextension/Contents/MacOS/com.crowdstrike.falcon.Agent
+
+
+Files are created in the first directory below. They are then moved and the permissions are changed to the path in RTR.
+File Create: /System/Volumes/Data/Library/Application Support/CrowdStrike/Falcon/*user input dependent*
+File Create: /System/Volumes/Data/*user input dependent*
+
+For example:
+File Create: /System/Volumes/Data/Library/Application Support/CrowdStrike/Falcon/myfile.zip
+File Create: /System/Volumes/Data/Users/user/Desktop/myfile.zip
+```
 
 ## 3. Host Artifacts
 
