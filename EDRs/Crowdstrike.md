@@ -152,6 +152,70 @@ For example:
 File Create: /System/Volumes/Data/Library/Application Support/CrowdStrike/Falcon/myfile.zip
 File Create: /System/Volumes/Data/Users/user/Desktop/myfile.zip
 ```
+&nbsp;
+
+Linux:
+
+This may differ depending on what Linux distribution is running. More testing needed.
+
+&nbsp;
+Interactive Shell:
+```
+Grandparent Process Path: /opt/CrowdStrike/falcond<sensor-version>
+Grandparent Process CommandLine: /opt/CrowdStrike/falcond
+Example Grandparent Path: /opt/CrowdStrike/falcond15805
+
+Parent Process Path: /opt/CrowdStrike/falcon-sensor<sensor-version>
+Parent Process CommandLine: falcon-sensor
+Example Path: /opt/CrowdStrike/falcon-sensor16108
+
+Process Path: *user input dependent*
+Process CommandLine: *user input dependent*
+
+```
+
+Run Script:
+```
+Parent Process Path: /opt/CrowdStrike/falcon-sensor<sensor-version>
+Parent Process CommandLine: falcon-sensor
+Example Path: /opt/CrowdStrike/falcon-sensor16108
+
+Parent Process Path: /bin/bash
+Parent CommandLine: /bin/bash -c #!/bin/bash # SYNOPSIS # Run a bash script with specified command line and timeout # DESCRIPTION # CrowdStrike Real Time Re /bin/bash <user input>
+Example Parent CommandLine: /bin/bash -c #!/bin/bash # SYNOPSIS # Run a bash script with specified command line and timeout # DESCRIPTION # CrowdStrike Real Time Re /bin/bash echo "Hello from the otherside!"
+
+Process Path: /bin/bash
+CommandLine: /bin/bash -c #!/bin/bash # SYNOPSIS # Run a bash script with specified command line and timeout # DESCRIPTION # CrowdStrike Real Time Re /bin/bash <user input>
+Example CommandLine:
+/bin/bash -c #!/bin/bash # SYNOPSIS # Run a bash script with specified command line and timeout # DESCRIPTION # CrowdStrike Real Time Re /bin/bash echo "Hello from the otherside!"
+```
+
+Put File:
+```
+Grandparent Process Path: /opt/CrowdStrike/falcond<sensor-version>
+Grandparent Process CommandLine: /opt/CrowdStrike/falcond
+Example Grandparent Path: /opt/CrowdStrike/falcond15805
+
+Parent Process Path: /opt/CrowdStrike/falcon-sensor<sensor-version>
+Parent Process CommandLine: falcon-sensor
+Example Path: /opt/CrowdStrike/falcon-sensor16108
+
+Process Path: /bin/bash
+Process CommandLine: 
+/bin/bash -c #!/bin/bash
+# SYNOPSIS
+#   Rename a downloaded file from the Falcon cloud
+# DESCRIPTION
+#   CrowdStrike Real Time Response comma /bin/bash <filename> <current rtr path> <filename>
+
+Process Command Line Example:
+/bin/bash -c #!/bin/bash
+# SYNOPSIS
+#   Rename a downloaded file from the Falcon cloud
+# DESCRIPTION
+#   CrowdStrike Real Time Response comma /bin/bash file.zip /tmp file.zip       
+
+```
 
 ## 3. Host Artifacts
 
