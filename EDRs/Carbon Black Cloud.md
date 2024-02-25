@@ -11,12 +11,12 @@ Live Query, which is Carbon Black's "wrapper" around osquery which lets you laun
 *.confer.net
 *.conferdeploy.net
 ```
-
-## 2. Process Ancestry
+## 2. Windows
+### 2.1 Process Ancestry
 
 Carbon Black Cloud has two (2) distinct process ancestry depending on the feature used: Live Response or Live Query (osquery).
 
-### 2.1. Live Response
+#### 2.2. Live Response
 ```
 Grandparent Process Path - C:\Program Files\Confer\RepMgr.exe
 
@@ -30,14 +30,14 @@ Process Path - *user input dependent*
 ```
 Ultimately, the Process Path will be the path of the binary and/or command that is launched through Live Response's exec or execfg command. E.g.: whoami, hostname, ipconfig, net user Aura, etc.
 
-#### 2.1.1. BladeRunner.exe
+##### 2.2.1. BladeRunner.exe
 The /workingDir value depend on which directory the user is in when in the Live Response session, with the default being C:\WINDOWS\System32. That directory can be changed through Live Response's cd command.
 
 The /outFile value is present when an execfg command is used in Live Response. This command returns the output of the Live Response command to the console. The output of the command is saved to that file which is then downloaded by Live Response and the content displayed in the console.
 
 It is unknown (for now) if the /outFileMaxSize value can be changed at a sensor level directly.
 
-### 2.2. Live Query
+#### 2.3. Live Query
 ```
 Grandparent Process Path - C:\Program Files\Confer\RepMgr.exe
 
@@ -56,19 +56,19 @@ SMB Pipe Process - C:\Program Files\Confer\Blades\LiveQuery\Ext\cbc_plugin_exten
 Created File - C:\Windows\Temp\etilqs_{aA-zZ0-9}[15]
 Created by - C:\Program Files\Confer\Blades\LiveQuery\osqueryi.exe
 ```
-##### 2.2.1. BladeRunner.exe
+###### 2.3.1. BladeRunner.exe
 $QUERY_ID refers to the ID of the query that is being launched.
 
 It is unknown (for now) if the various CPU, RAM and execution time parameters can be changed at a sensor level directly.
 
-##### 2.2.2. osqueryi.exe
+###### 2.3.2. osqueryi.exe
 For osqueryi.exe, $QUERY_ID refers to the ID of the query that is being launched. It should be the same as one in BladeRunner.exe.
 
 For osqueryi.exe, $QUERY refers to the query that is being executed through Live Query. For instance, it could be: SELECT * FROM file WHERE path LIKE "C:\Tools\%%";
 
 For the etilqs file, it has not been investigated yet. It is suspected to hold the results of the Live Query query.
 
-## 3. Host Artifacts
+### 3. Host Artifacts
 Every Carbon Black Cloud Live Response command is logged in the console Audit log.
 ```
 C:\ProgramData\CarbonBlack\Logs\LiveQuery.log
