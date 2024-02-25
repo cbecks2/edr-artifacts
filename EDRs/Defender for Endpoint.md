@@ -16,7 +16,9 @@ Too many domains and/or URLs to list. Microsoft has a comprehensive list of doma
 
 https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/configure-environment?view=o365-worldwide
 
-## 2. Process Ancestry
+## 2. Windows
+
+### 2.1 Process Ancestry
 
 The process ancestry for Defender for Endpoint depends on what the uploaded and executed PowerShell script does on the endpoint. Will it call external processes/binaries, or is it pure inline PowerShell (e.g.: cmdlet). In both situations, the main "process commandline" that interest us is the same. However, in situations where the script calls external processes/binaries, that "main" process will become the parent process in your queries/search.
 ```
@@ -44,13 +46,36 @@ For PowerShell.exe, $CLSID refers to [TO DO]
 
 For PowerShell.exe, $POWERSHELL_SCRIPT_HASH refers to [TO DO]
 
-## 3. Host Artifacts
+### 2.2 Host Artifacts
 
 When a script is executed from Live Response, Defender for Endpoint will create a Transcript log on the endpoint at the following path:
 ```
 C:\ProgramData\Microsoft\Windows Defender Advanced Threat Protection\Temp\PSScriptOutputs\PSScript_Transcript_{$CLSID}.txt
 ```
 Where $CLSID is the [TO BE ADDED]
+
+## 3. Linux
+
+### 3.1. Process Ancestry
+
+```
+Grandparent Process Path - /opt/microsoft/mdatp/sbin/wdavdeamon
+Grandparent Process CommandLine - /opt/microsoft/mdatp/sbin/wdavdeamon edr {0-9}[2] {0-9}[2] --log_level info
+
+Parent Process Path - /opt/microsoft/mdatp/sbin/senseir
+Parent Process CommandLine - /opt/microsoft/mdatp/sbin/senseir $BASE64_ENCODED_STRING
+
+Process Path - /bin/bash
+Process CommandLine - /bin/bash -s --
+
+Child Process Path - *user input dependent*
+Child Process CommandLine - *user input dependent*
+```
+For senseir, $BASE_ENCODED_STRING refers to [TO DO]
+
+The Process Path, which is the Linux shell, may depend on which shell you choose to call/use in a script that is being executed from the Library.
+
+In a similar fashion, the Child Process (or Processes) will depend on the binaries/executables that are called from the script.
 
 ## 4. References
 
