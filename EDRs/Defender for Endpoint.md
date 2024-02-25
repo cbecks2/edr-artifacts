@@ -10,6 +10,14 @@ For instance, uploading a file named "Velociraptor_Collector.exe" to the Library
 ```
 C:\ProgramData\Microsoft\Windows Defender Advanced Threat Protection\Downloads\Velociraptor_Collector.exe
 ```
+On the other hand, on a Linux endpoint, the file is dropped in the following folder:
+```
+/var/opr/microsoft/mdatp/response/
+```
+Which would look like this, if we uploaded a file named "getNetworkConnections.sh":
+```
+/var/opt/microsoft/mdatp/response/getNetworkConnections.sh
+```
 ## 1. Network Telemetry
 
 Too many domains and/or URLs to list. Microsoft has a comprehensive list of domains/URLs that endpoints where Defender for Endpoint is deployed need to access.
