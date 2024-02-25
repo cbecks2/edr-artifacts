@@ -122,7 +122,7 @@ For osqueryi, $QUERY refers to the query that is being executed through Live Que
 The following Sigma rule(s) can be used to detect the use of Carbon Black Cloud Live Response or Live Query functionalities on a system.
 
 ### 4.1. Carbon Black Cloud Live Response on Windows
-```
+```yaml
 title: Carbon Black Cloud Live Response Usage on Windows
 id: 55308b44-289a-4d0e-bb88-5f3a446a2e75
 status: experimental
