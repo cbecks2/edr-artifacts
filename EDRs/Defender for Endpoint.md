@@ -2,7 +2,7 @@
 
 Defender for Endpoint has a Live Response feature that allows users to connect remotely to an endpoint and drop in a shell supported multiple commands. Through the use of the "Library", it is possible for a user to upload and execute an arbitrary PowerShell script on a Windows endpoint. It is also possible for a user to upload a file to an endpoint and execute that file through a PowerShell script (e.g.: a Velociraptor collector, Autoruns, a remediation tool, etc.).
 
-When a file is uploaded from the Library to the endpoint, the file is dropped in the following folder:
+When a file is uploaded from the Library to the Windows endpoint, the file is dropped in the following folder:
 ```
 C:\ProgramData\Microsoft\Windows Defender Advanced Threat Protection\Downloads
 ```
