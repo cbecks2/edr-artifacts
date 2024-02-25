@@ -6,9 +6,10 @@ SentinelOne offers two (2) features to interact with an endpoint:
 
 ## 1. Network Telemetry
 
-## 2. Process Ancestry
+## 2. Windows
+### 2.1. Process Ancestry
 
-### 2.1. Remote Shell (RSH)
+#### 2.1.1. Remote Shell (RSH)
 
 When you start a Remote Shell session on an endpoint, on Windows, a user called SentinelRSHUser gets used. Therefore, it is easy to search for any command that may have been executed through Remote Shell. Simply look for any process launched by that user (e.g.: DESKTOP\SentinelRSHUser).
 ```
@@ -26,7 +27,7 @@ Child Process CommandLine - *user input dependent*
 ```
 $VERSION refers to the version of the SentinelOne Agent that is installed, e.g.: 23.1.5.886.
 
-### 2.2. Remote Script Orchestration (RSO)
+#### 2.1.2. Remote Script Orchestration (RSO)
 ```
 Grandparent Process Path - C:\Program Files\SentinelOne\Sentinel Agent $VERSION\SentinelAgent.exe
 Grandparent Process CommandLine - "C:\Program Files\SentinelOne\Sentinel Agent $VERSION\SentinelAgent.exe"
@@ -39,9 +40,9 @@ Process CommandLine - "C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe
 ```
 $RSO_SCRIPT refers to the name of the script that is being launched through RSO, e.g.: Get-WindowsServices.ps1.
 
-## 3. Host Artifacts
+### 2.2. Host Artifacts
 
-### 3.1. Remote Shell
+#### 2.2.1. Remote Shell
 ```
 C:\ProgramData\Sentinel\rshTranscripts
 ```
@@ -52,5 +53,9 @@ However, if you pull a Support Package from the agent via the console, it includ
 agent.remoteShell.logTranscript false
 ```
 Inferring that there may be a way to set that setting to "true" and therefore, get the rshTranscripts folder populated with the actual Remote Shell transcript logs.
+
+## 3. Linux
+
+### 3.1. Process Ancestry
 
 ## 4. References
