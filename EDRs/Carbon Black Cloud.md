@@ -56,12 +56,12 @@ SMB Pipe Process - C:\Program Files\Confer\Blades\LiveQuery\Ext\cbc_plugin_exten
 Created File - C:\Windows\Temp\etilqs_{aA-zZ0-9}[15]
 Created by - C:\Program Files\Confer\Blades\LiveQuery\osqueryi.exe
 ```
-###### 2.3.1. BladeRunner.exe
+##### 2.3.1. BladeRunner.exe
 $QUERY_ID refers to the ID of the query that is being launched.
 
 It is unknown (for now) if the various CPU, RAM and execution time parameters can be changed at a sensor level directly.
 
-###### 2.3.2. osqueryi.exe
+##### 2.3.2. osqueryi.exe
 For osqueryi.exe, $QUERY_ID refers to the ID of the query that is being launched. It should be the same as one in BladeRunner.exe.
 
 For osqueryi.exe, $QUERY refers to the query that is being executed through Live Query. For instance, it could be: SELECT * FROM file WHERE path LIKE "C:\Tools\%%";
