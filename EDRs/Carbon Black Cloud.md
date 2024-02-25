@@ -117,7 +117,40 @@ For osqueryi, $CLSID refers to a CLSID that is probably tied/linked to the versi
 
 For osqueryi, $QUERY refers to the query that is being executed through Live Query. For instance, it could be: SELECT * FROM file WHERE path LIKE "/root/%";
 
-## 4. References
+## 4. Sigma
+
+The following Sigma rule(s) can be used to detect the use of Carbon Black Cloud Live Response or Live Query functionalities on a system.
+
+### 4.1. Carbon Black Cloud Live Response on Windows
+```
+title: Carbon Black Cloud Live Response Usage on Windows
+id: 55308b44-289a-4d0e-bb88-5f3a446a2e75
+status: experimental
+description: This rule detects the usage of Live Response exec and execfg commands from Carbon Black Cloud Live Response on a Windows host.
+references:
+    - https://docs.vmware.com/en/VMware-Carbon-Black-Cloud/services/carbon-black-cloud-user-guide/GUID-7399B083-D65C-40ED-A831-460F7216F748.html
+tags:
+    - attack.execution
+    - attack.t1059
+author: @SecurityAura
+date: 2024/02/25
+logsource:
+    category: process_creation
+    product: windows
+detection: # TO DO
+    selection:
+        FieldName: 'StringValue'
+        FieldName: IntegerValue
+        FieldName|modifier: 'Value'
+    condition: selection
+fields:
+    - fields in the log source that are important to investigate further
+falsepositives:
+    - Legitimate usage of Carbon Black Cloud Live Response on an endpoint
+level: informational
+```
+
+## 5. References
 
 https://docs.vmware.com/en/VMware-Carbon-Black-Cloud/services/cbc-sensor-installation-guide/GUID-06D2CB73-968A-466E-BD69-B7480CBA800A.html
 https://docs.vmware.com/en/VMware-Carbon-Black-Cloud/services/carbon-black-cloud-user-guide/GUID-7399B083-D65C-40ED-A831-460F7216F748.html#:~:text=To%20use%20Live%20Response%2C%20users,policy%20with%20Live%20Response%20enabled.&text=Click%20Enforce%2C%20then%20Policies.,Select%20a%20policy%20group.
