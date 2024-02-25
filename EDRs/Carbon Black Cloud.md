@@ -80,6 +80,43 @@ LiveResponse.log is a log that holds all the commands that were executed on the 
 
 These logs can be obtained by using the "C:\Program Files\Confer\RepCLI.exe" capture command, which creates an archive called psc_sensor.zip. This archive holds the Logs folder in which these logs are located.
 
+## 3. Linux
+
+The information below was gathered on CentOS running the Carbon Black Cloud sensor.
+
+### 3.1. Process Ancestry
+
+Carbon Black Cloud has two (2) distinct process ancestry depending on the feature used: Live Response or Live Query (osquery). On Linux, both the exec and execfg shell commands have the same process ancestry.
+
+#### 3.2. Live Response
+```
+Grandparent Process Path - /opt/carbonblack/psc/bin/cbagentd
+
+Parent Process Path - /opt/carbonblack/psc/bin/cbagentd
+Parent Process CommandLine - /opt/carbonblack/psc/bin/cbagentd --foreground
+
+Process Path - /usr/bin/bash
+Process CommandLine - sh -c "*user input dependent*"
+
+Child Process Path - *user input dependent*
+Child Process CommandLine - *user input dependent*
+```
+Ultimately, the Process Path will be the path of the binary and/or command that is launched through Live Response's exec or execfg command. E.g.: whoami, hostname, uname, ip addr, etc.
+
+#### 3.3. Live Query
+```
+Grandparent Process Path - /opt/carbonblack/psc/bin/cbagentd
+
+Parent Process Path - /opt/carbonblack/psc/bin/cbagentd
+Parent Process CommandLine - /opt/carbonblack/psc/bin/cbagentd --foreground
+
+Process Path - /opt/carbonblack/psc/blades/$CLSID/osqueryi
+Process CommandLine - /opt/carbonblack/psc/blades/$CLSID/osqueryi --json --logger_min_status 2 "$QUERY"
+```
+For osqueryi, $CLSID refers to a CLSID that is probably tied/linked to the version of the Carbon Black Cloud agent that is deployed on the system.
+
+For osqueryi, $QUERY refers to the query that is being executed through Live Query. For instance, it could be: SELECT * FROM file WHERE path LIKE "/root/%";
+
 ## 4. References
 
 https://docs.vmware.com/en/VMware-Carbon-Black-Cloud/services/cbc-sensor-installation-guide/GUID-06D2CB73-968A-466E-BD69-B7480CBA800A.html
