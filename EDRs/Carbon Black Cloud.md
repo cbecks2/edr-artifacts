@@ -68,7 +68,7 @@ For osqueryi.exe, $QUERY refers to the query that is being executed through Live
 
 For the etilqs file, it has not been investigated yet. It is suspected to hold the results of the Live Query query.
 
-### 3. Host Artifacts
+### 2.4. Host Artifacts
 Every Carbon Black Cloud Live Response command is logged in the console Audit log.
 ```
 C:\ProgramData\CarbonBlack\Logs\LiveQuery.log
