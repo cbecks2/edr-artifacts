@@ -1,0 +1,28 @@
+title: SentinelOne Remote Shell Usage on Windows
+id: c5a77133-fb2d-48bb-ac0f-d4f6f8968378
+status: experimental
+description: This rule detects the usage of Remote Shell commands from SentinelOne on a Windows host.
+references:
+    - TO BE ADDED
+tags:
+    - attack.execution
+    - attack.t1059
+author: @SecurityAura
+date: 2024/03/02
+logsource:
+    category: process_creation
+    product: windows
+detection:
+    selection:
+        ParentImage|contains|all: 
+          - 'C:\Program Files\SentinelOne\Sentinel Agent'
+          - 'SentinelRemoteShellHost.exe'
+        ImageName: 'powershell.exe'
+    condition: selection
+fields:
+    - CommandLine
+    - TargetImage
+    - TargetCommandLine
+falsepositives:
+    - Legitimate usage of SentinelOne Remote Shell on an endpoint
+level: informational
