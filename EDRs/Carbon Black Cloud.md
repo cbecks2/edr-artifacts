@@ -139,12 +139,37 @@ logsource:
     product: windows
 detection: # TO DO
     selection:
-        FieldName: 'StringValue'
-        FieldName: IntegerValue
-        FieldName|modifier: 'Value'
+        ParentImage: 'C:\Program Files\Confer\BladeRunner.exe'
     condition: selection
 fields:
-    - fields in the log source that are important to investigate further
+    - None for now
+falsepositives:
+    - Legitimate usage of Carbon Black Cloud Live Response on an endpoint
+level: informational
+```
+### 4.2. Carbon Black Cloud Live Query on Windows
+```yaml
+title: Carbon Black Cloud Live Response Usage on Windows
+id: ab998e42-f7d4-4efd-ac0a-4487c1f644fe
+status: experimental
+description: This rule detects the usage of Live Response exec and execfg commands from Carbon Black Cloud Live Response on a Windows host.
+references:
+    - https://docs.vmware.com/en/VMware-Carbon-Black-Cloud/services/carbon-black-cloud-user-guide/GUID-7399B083-D65C-40ED-A831-460F7216F748.html
+tags:
+    - attack.execution
+    - attack.t1059
+author: @SecurityAura
+date: 2024/02/25
+logsource:
+    category: process_creation
+    product: windows
+detection: # TO DO
+    selection:
+        ParentImage: 'C:\Program Files\Confer\BladeRunner.exe'
+        Image: 'C:\Program Files\Confer\Blades\LiveQuery\osqueryi.exe'
+    condition: selection
+fields:
+    - None for now
 falsepositives:
     - Legitimate usage of Carbon Black Cloud Live Response on an endpoint
 level: informational
