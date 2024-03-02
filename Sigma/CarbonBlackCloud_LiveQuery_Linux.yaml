@@ -1,0 +1,26 @@
+title: Carbon Black Cloud Live Query Usage on Linux
+id: 8c94dc3b-84be-42f3-ac61-abc04a656b9a
+status: experimental
+description: This rule detects the usage of Live Query queries from Carbon Black Cloud on a Linux host.
+references:
+    - https://docs.vmware.com/en/VMware-Carbon-Black-Cloud/services/carbon-black-cloud-user-guide/GUID-129D4F84-1BF0-49F3-BF95-83002FD63217.html
+tags:
+    - attack.execution
+    - attack.t1059
+author: @SecurityAura
+date: 2024/03/02
+logsource:
+    category: process_creation
+    product: linux
+detection:
+    selection:
+        ParentImage: '/opt/carbonblack/psc/bin/cbagentd'
+        ImagePath|contains|all: 
+          - '/opt/carbonblack/psc/blades'
+          - 'osqueryi'
+    condition: selection
+fields:
+    - CommandLine
+falsepositives:
+    - Legitimate usage of Carbon Black Cloud Live Query on an endpoint
+level: informational
