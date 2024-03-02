@@ -3,22 +3,21 @@ id: ab998e42-f7d4-4efd-ac0a-4487c1f644fe
 status: experimental
 description: This rule detects the usage of Live Query queries from Carbon Black Cloud on a Windows host.
 references:
-    - https://docs.vmware.com/en/VMware-Carbon-Black-Cloud/services/carbon-black-cloud-user-guide/GUID-7399B083-D65C-40ED-A831-460F7216F748.html
+    - https://docs.vmware.com/en/VMware-Carbon-Black-Cloud/services/carbon-black-cloud-user-guide/GUID-129D4F84-1BF0-49F3-BF95-83002FD63217.html
 tags:
     - attack.execution
     - attack.t1059
 author: @SecurityAura
-date: 2024/02/25
+date: 2024/03/02
 logsource:
     category: process_creation
     product: windows
-detection: # TO DO
+detection:
     selection:
-        ParentImage: 'C:\Program Files\Confer\BladeRunner.exe'
         Image: 'C:\Program Files\Confer\Blades\LiveQuery\osqueryi.exe'
     condition: selection
 fields:
-    - None for now
+    - CommandLine
 falsepositives:
-    - Legitimate usage of Carbon Black Cloud Live Response on an endpoint
+    - Legitimate usage of Carbon Black Cloud Live Query on an endpoint
 level: informational
