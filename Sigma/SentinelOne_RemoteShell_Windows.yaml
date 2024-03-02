@@ -17,7 +17,7 @@ detection:
         ParentImage|contains|all: 
           - 'C:\Program Files\SentinelOne\Sentinel Agent'
           - 'SentinelRemoteShellHost.exe'
-        ImageName: 'powershell.exe'
+        Image|endswith: 'powershell.exe'
     condition: selection
 fields:
     - CommandLine
