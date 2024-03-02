@@ -17,7 +17,7 @@ detection:
         ParentImage: 'C:\Program Files\Confer\BladeRunner.exe'
     condition: selection
 fields:
-    - None for now
+    - CommandLine
 falsepositives:
     - Legitimate usage of Carbon Black Cloud Live Response on an endpoint
 level: informational
