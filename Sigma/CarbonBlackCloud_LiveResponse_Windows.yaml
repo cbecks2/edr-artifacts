@@ -1,5 +1,5 @@
 title: Carbon Black Cloud Live Response Usage on Windows
-id: 55308b44-289a-4d0e-bb88-5f3a446a2e75
+id: e61433e1-fb07-46ba-a369-4af52dba8ca5
 status: experimental
 description: This rule detects the usage of Live Response exec and execfg commands from Carbon Black Cloud Live Response on a Windows host.
 references:
@@ -12,7 +12,7 @@ date: 2024/02/25
 logsource:
     category: process_creation
     product: windows
-detection: # TO DO
+detection:
     selection:
         ParentImage: 'C:\Program Files\Confer\BladeRunner.exe'
     condition: selection
