@@ -1,0 +1,23 @@
+title: CrowdStrike Real Time Response Usage on Linux
+id: 1e4b5b1a-6612-4b7d-b3e2-de4d1ab945dc
+status: experimental
+description: This rule detects the usage of Real Time Response from CrowdStrike on a Linux host.
+references:
+    - https://www.crowdstrike.com/resources/videos/how-real-time-response-empowers-incident-response/
+tags:
+    - attack.execution
+    - attack.t1059
+author: SecurityAura
+date: 2024/03/23
+logsource:
+    category: process_creation
+    product: linux
+detection:
+    selection:
+        Image: 'C:\Program Files\Confer\Blades\LiveQuery\osqueryi.exe'
+    condition: selection
+fields:
+    - CommandLine
+falsepositives:
+    - Legitimate usage of CrowdStrike Real Time  Response on an endpoint
+level: informational
