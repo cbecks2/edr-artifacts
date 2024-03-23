@@ -4,3 +4,10 @@ This repository is meant to catalog network and host artifacts associated with v
 This goal of this project is to assist incident responders, detection engineers, and threat hunters in finding signs of non-approved EDRs being leveraged in their environment outside enumerating installed software.
 
 As many of this products are expensive and do not have free trials (for good reason!), this project is best effort and community driven. All suggestions and commits to improve it are welcomed and encouraged.
+
+The initial release of this project on 2024/03/xx covers the following EDRs:
+- Carbon Black Cloud
+- CrowdStrike
+- Microsoft Defender for Endpoint (MDE)
+- SentinelOne
+- Tanium
