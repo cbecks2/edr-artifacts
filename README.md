@@ -5,6 +5,16 @@ This goal of this project is to assist incident responders, detection engineers,
 
 As many of this products are expensive and do not have free trials (for good reason!), this project is best effort and community driven. All suggestions and commits to improve it are welcomed and encouraged.
 
+# Repository Architecture
+
+This repo is mostly split in two sections: EDRs and Sigma.
+
+The EDRs folder contains a single markdown (.md) file for each EDR with information about this product's shell and response functionnalities.
+
+The Sigma folder contains all the Sigma rules related to the usage of these products' shell and response functionnalities.
+
+# Supported EDRs
+
 The initial release of this project on 2024/03/xx covers the following EDRs:
 - Carbon Black Cloud
 - CrowdStrike
