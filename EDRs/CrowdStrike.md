@@ -144,8 +144,8 @@ File Create: /System/Volumes/Data/Library/Application Support/CrowdStrike/Falcon
 File Create: /System/Volumes/Data/Users/user/Desktop/myfile.zip
 ```
 
-# 4. Linux:
-## 4.1 Process Ancestry
+## 4. Linux
+### 4.1 Process Ancestry
 
 This may differ depending on what Linux distribution is running. More testing needed.
 
