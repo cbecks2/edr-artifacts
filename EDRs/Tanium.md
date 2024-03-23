@@ -25,9 +25,10 @@ Process CommandLine: *user input dependent*
 
 ### 2.2 Host Artifacts
 ```
-C:\Program Files (x86)\Tanium\Tanium Client\Downloads\[0-9]+\.log (For example, Action_1247444.log)
-C:\Program Files (x86)\Tanium\Tanium Client\Downloads\Action_[0-9]+\* (For example, Action_124744 will be the directory and the contents will be anything associated with that action that was not already on disk).
+C:\Program Files (x86)\Tanium\Tanium Client\Downloads\[0-9]+\.log
+C:\Program Files (x86)\Tanium\Tanium Client\Downloads\Action_[0-9]+\*
 ```
+For instance, if the number of the action is 1247444, the resulting log will be Action_1247444.log and the folder Action_1247444. That folder will then hold anything associated with that Action that was not already on the disk.
 
 ## 3. macOS
 ### 3.1 Process Ancestry
