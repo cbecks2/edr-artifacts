@@ -35,7 +35,7 @@ Process CommandLine: *user input dependent*
 
 This may differ depending on what tool you use to view Mac Process Trees.
 
-Run Script:
+#### 3.1.1 Run Script
 ```
 Grandarent Process Path: /Library/SystemExtensions/<system extension guid>/com.crowdstrike.falcon.Agent.systemextension/Contents/MacOS/com.crowdstrike.falcon.Agent
 Grandparent Process CommandLine: /Library/SystemExtensions/<system extension guid>/com.crowdstrike.falcon.Agent.systemextension/Contents/MacOS/com.crowdstrike.falcon.Agent
@@ -125,7 +125,7 @@ Process Path: *user dependent*
 Process CommandLine: *user dependent*
 ```
 
-Put File:
+#### 3.1.2 Put File:
 ```
 Parent Process Path: /sbin/launchd
 Parent Process CommandLine: /sbin/launchd
@@ -149,7 +149,7 @@ File Create: /System/Volumes/Data/Users/user/Desktop/myfile.zip
 
 This may differ depending on what Linux distribution is running. More testing needed.
 
-Interactive Shell:
+#### 4.1.1 Interactive Shell
 ```
 Grandparent Process Path: /opt/CrowdStrike/falcond<sensor-version>
 Grandparent Process CommandLine: /opt/CrowdStrike/falcond
@@ -164,7 +164,7 @@ Process CommandLine: *user input dependent*
 
 ```
 
-Run Script:
+#### 4.1.2 Run Script
 ```
 Parent Process Path: /opt/CrowdStrike/falcon-sensor<sensor-version>
 Parent Process CommandLine: falcon-sensor
@@ -180,7 +180,7 @@ Example CommandLine:
 /bin/bash -c #!/bin/bash # SYNOPSIS # Run a bash script with specified command line and timeout # DESCRIPTION # CrowdStrike Real Time Re /bin/bash echo "Hello from the otherside!"
 ```
 
-Put File:
+#### 4.1.3 Put File
 ```
 Grandparent Process Path: /opt/CrowdStrike/falcond<sensor-version>
 Grandparent Process CommandLine: /opt/CrowdStrike/falcond
