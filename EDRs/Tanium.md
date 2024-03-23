@@ -25,8 +25,7 @@ Process CommandLine: *user input dependent*
 ```
 
 ### 2.2 Host Artifacts
-
-Actions:
+#### 2.2.1 Actions
 ```
 C:\Program Files (x86)\Tanium\Tanium Client\Downloads\[0-9]+\.log (For example, Action_1247444.log)
 C:\Program Files (x86)\Tanium\Tanium Client\Downloads\Action_[0-9]+\* (For example, Action_124744 will be the directory and the contents will be anything associated with that action that was not already on disk).
@@ -39,7 +38,6 @@ C:\Program Files (x86)\Tanium\Tanium Client\Downloads\Action_[0-9]+\* (For examp
 ### 3.1. Process Ancestry
 
 This may differ depending on what tool you use to view Mac Process Trees.
-
 ```
 Grandparent Process Path: /Library/Tanium/TaniumClient/TaniumClient
 Grandparent Process CommandLine: /Library/Tanium/TaniumClient/TaniumClient -d
