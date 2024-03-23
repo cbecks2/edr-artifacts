@@ -14,17 +14,17 @@ The Sigma folder contains all the Sigma rules related to the usage of these prod
 # Supported EDRs
 
 The initial release of this project on 2024/03/xx covers the following EDRs:
-- Carbon Black Cloud
+- Carbon Black Cloud (CBC)
   - Windows
   - Linux 
-- CrowdStrike
+- CrowdStrike (CS)
   - Windows
   - macOS
   - Linux
 - Microsoft Defender for Endpoint (MDE)
   - Windows
   - Linux
-- SentinelOne
+- SentinelOne (S1)
   - Windows
   - Linux
 - Tanium
