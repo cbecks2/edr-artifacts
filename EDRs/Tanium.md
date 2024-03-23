@@ -10,7 +10,6 @@ You are likely to have a hard timing hunting on this behavior given how the tool
 
 ## 2. Windows
 ### 2.1 Process Ancestry
-
 ```
 Grandparent Process Path: C:\Program Files (x86)\Tanium\Tanium Client\TaniumClient.exe
 Grandparent Process CommandLine: "C:\Program Files (x86)\Tanium\Tanium Client\TaniumClient.exe" -c
@@ -25,7 +24,6 @@ Process CommandLine: *user input dependent*
 ```
 
 ### 2.2 Host Artifacts
-#### 2.2.1 Actions
 ```
 C:\Program Files (x86)\Tanium\Tanium Client\Downloads\[0-9]+\.log (For example, Action_1247444.log)
 C:\Program Files (x86)\Tanium\Tanium Client\Downloads\Action_[0-9]+\* (For example, Action_124744 will be the directory and the contents will be anything associated with that action that was not already on disk).
