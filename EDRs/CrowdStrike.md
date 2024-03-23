@@ -7,7 +7,7 @@ cloudsink.net
 ```
 
 ## 2. Windows
-## 2.1 Process Ancestry
+### 2.1 Process Ancestry
 CrowdStrike Real Time Response calls the CLSIDs below. At the time of this writing investigation into what causes each one to be invoked has not been determined. Note that the process chain below may differ slightly depending on what and how something was invoked.
 
 I personally have only seen false positives from this CLSID, but it was included in the Elastic rule referenced below.
