@@ -209,7 +209,4 @@ Process Command Line Example:
 
 ## 5. References
 
-
-## 4. References
-
-* https://github.com/elastic/protections-artifacts/blob/main/behavior/rules/execution_unusual_powershell_engine_imageload.toml
+https://github.com/elastic/protections-artifacts/blob/main/behavior/rules/execution_unusual_powershell_engine_imageload.toml
