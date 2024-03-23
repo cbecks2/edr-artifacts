@@ -52,9 +52,9 @@ For SenseIR.exe, $ENCODED_POWERSHELL_COMMAND is actually an encoded JSON string 
 
 ![SenseIREncodedPowerShellCommandDecoded](../Images/senseir.exe_encoded_powershell_command_decoded.png)
 
-For PowerShell.exe, $CLSID refers to [TO DO]
+Research into the $CLSID of PowerShell.exe is still on-going.
 
-For PowerShell.exe, $POWERSHELL_SCRIPT_HASH refers to [TO DO]
+Research into the $POWERSHELL_SCRIPT_HASH of PowerShell.exe is still on-going.
 
 ### 2.2 Host Artifacts
 
@@ -62,7 +62,7 @@ When a script is executed from Live Response, Defender for Endpoint will create 
 ```
 C:\ProgramData\Microsoft\Windows Defender Advanced Threat Protection\Temp\PSScriptOutputs\PSScript_Transcript_{$CLSID}.txt
 ```
-Where $CLSID is the [TO BE ADDED]
+Research into the $CLSID is still on-going.
 
 ## 3. Linux
 
@@ -81,7 +81,9 @@ Process CommandLine - /bin/bash -s --
 Child Process Path - *user input dependent*
 Child Process CommandLine - *user input dependent*
 ```
-For senseir, $BASE_ENCODED_STRING refers to [TO DO]
+For senseir, $BASE_ENCODED_STRING is a base64(-ish?) command that has some JSON elements in it alongside a certificate.
+
+![SenseIREncodedPowerShellCommandDecoded](../Images/senseir_encoded_command_decoded.png)
 
 The Process Path, which is the Linux shell, may depend on which shell you choose to call/use in a script that is being executed from the Library.
 
