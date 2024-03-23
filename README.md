@@ -26,7 +26,6 @@ The initial release of this project on 2024/03/xx covers the following EDRs:
   - Linux
 - SentinelOne (S1)
   - Windows
-  - Linux
 - Tanium
   - Windows
   - macOS
