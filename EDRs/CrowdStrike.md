@@ -1,4 +1,4 @@
-# Crowdstrike
+# CrowdStrike
 
 ## 1. Network Telemetry
 ```
@@ -6,18 +6,13 @@ cloudsink.net
 *.cloudsink.net
 ```
 
-
-## 2. Process Ancestry
-Crowdstrike Real Time Response calls the CLSIDs below. At the time of this writing investigation into what causes each one to be invoked has not been determined. Note that the process chain below may differ slightly depending on what and how something was invoked.
+## 2. Windows
+## 2.1 Process Ancestry
+CrowdStrike Real Time Response calls the CLSIDs below. At the time of this writing investigation into what causes each one to be invoked has not been determined. Note that the process chain below may differ slightly depending on what and how something was invoked.
 
 I personally have only seen false positives from this CLSID, but it was included in the Elastic rule referenced below.
 
 [AB8902B4-09CA-4BB6-B78D-A8F59079A8D5](https://strontic.github.io/xcyclopedia/library/clsid_AB8902B4-09CA-4bb6-B78D-A8F59079A8D5.html) 
-
-
-
-Windows:
-
 
 ```
 Grandparent Process Path: C:\Windows\system32\svchost.exe
@@ -34,14 +29,11 @@ Parent Process CommandLine: C:\WINDOWS\system32\DllHost.exe /Processid:{338B40F9
 Process Path: *user input dependent*
 Process CommandLine: *user input dependent*
 ```
-&nbsp;
 
-Mac:
-
+## 3. macOS
+### 3.1 Process Ancestry
 
 This may differ depending on what tool you use to view Mac Process Trees.
-
-&nbsp;
 
 Run Script:
 ```
@@ -132,7 +124,6 @@ done /bin/zsh *user input here*
 Process Path: *user dependent*
 Process CommandLine: *user dependent*
 ```
-&nbsp;
 
 Put File:
 ```
@@ -152,13 +143,12 @@ For example:
 File Create: /System/Volumes/Data/Library/Application Support/CrowdStrike/Falcon/myfile.zip
 File Create: /System/Volumes/Data/Users/user/Desktop/myfile.zip
 ```
-&nbsp;
 
-Linux:
+# 4. Linux:
+## 4.1 Process Ancestry
 
 This may differ depending on what Linux distribution is running. More testing needed.
 
-&nbsp;
 Interactive Shell:
 ```
 Grandparent Process Path: /opt/CrowdStrike/falcond<sensor-version>
@@ -217,7 +207,7 @@ Process Command Line Example:
 
 ```
 
-## 3. Host Artifacts
+## 5. References
 
 
 ## 4. References
