@@ -50,7 +50,7 @@ Process Command Line - C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe
 ```
 For SenseIR.exe, $ENCODED_POWERSHELL_COMMAND is actually an encoded JSON string which contains various information such as: CommandId, MachineId, OrgId, AirsServiceUrl, parameters related to the script execution and also full certificate trust chains.
 
-![SenseIREncodedPowerShellCommandDecoded](Images/senseir.exe_encoded_powershell_command_decoded.png)
+![SenseIREncodedPowerShellCommandDecoded](../Images/senseir.exe_encoded_powershell_command_decoded.png)
 
 For PowerShell.exe, $CLSID refers to [TO DO]
 
