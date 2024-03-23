@@ -48,7 +48,9 @@ Parent Process CommandLine - "C:\Program Files\Windows Defender Advanced Threat 
 Process Path - C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 Process Command Line - C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Bypass -NoProfile -NonInteractive -Command "& {$OutputEncoding = [Console]::OutputEncoding =[System.Text.Encoding]::UTF8;$scriptFileStream = [System.IO.File]::Open('C:\ProgramData\Microsoft\Windows Defender Advanced Threat Protection\Downloads\PSScript_{$CLSID}.ps1', [System.IO.FileMode]::Open, [System.IO.FileAccess]::Read, [System.IO.FileShare]::Read);$calculatedHash = Microsoft.PowerShell.Utility\Get-FileHash 'C:\ProgramData\Microsoft\Windows Defender Advanced Threat Protection\Downloads\PSScript_{$CLSID}.ps1' -Algorithm SHA256;if (!($calculatedHash.Hash -eq '$POWERSHELL_SCRIPT_HASH')) { exit 323;};Start-Transcript -Path 'C:\ProgramData\Microsoft\Windows Defender Advanced Threat Protection\Temp\PSScriptOutputs\PSScript_Transcript_{$CLSID}.txt'; . 'C:\ProgramData\Microsoft\Windows Defender Advanced Threat Protection\Downloads\PSScript_{$CLSID}.ps1' }"
 ```
-For SenseIR.exe, $ENCODED_POWERSHELL_COMMAND refers to [TO DO]
+For SenseIR.exe, $ENCODED_POWERSHELL_COMMAND is actually an encoded JSON string which contains various information such as: CommandId, MachineId, OrgId, AirsServiceUrl, parameters related to the script execution and also full certificate trust chains.
+
+![SenseIREncodedPowerShellCommandDecoded](Images/senseir.exe_encoded_powershell_command_decoded.png)
 
 For PowerShell.exe, $CLSID refers to [TO DO]
 
