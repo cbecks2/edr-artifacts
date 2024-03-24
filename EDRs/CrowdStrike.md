@@ -7,7 +7,7 @@ cloudsink.net
 ```
 
 ## 2. Windows
-### 2.1 Process Ancestry
+### 2.1. Process Ancestry
 CrowdStrike Real Time Response calls the CLSIDs below. At the time of this writing investigation into what causes each one to be invoked has not been determined. Note that the process chain below may differ slightly depending on what and how something was invoked.
 
 I personally have only seen false positives from this CLSID, but it was included in the Elastic rule referenced below.
@@ -31,11 +31,11 @@ Process CommandLine: *user input dependent*
 ```
 
 ## 3. macOS
-### 3.1 Process Ancestry
+### 3.1. Process Ancestry
 
 This may differ depending on what tool you use to view Mac Process Trees.
 
-#### 3.1.1 Run Script
+#### 3.1.1. Run Script
 ```
 Grandarent Process Path: /Library/SystemExtensions/<system extension guid>/com.crowdstrike.falcon.Agent.systemextension/Contents/MacOS/com.crowdstrike.falcon.Agent
 Grandparent Process CommandLine: /Library/SystemExtensions/<system extension guid>/com.crowdstrike.falcon.Agent.systemextension/Contents/MacOS/com.crowdstrike.falcon.Agent
@@ -125,7 +125,7 @@ Process Path: *user dependent*
 Process CommandLine: *user dependent*
 ```
 
-#### 3.1.2 Put File:
+#### 3.1.2. Put File:
 ```
 Parent Process Path: /sbin/launchd
 Parent Process CommandLine: /sbin/launchd
@@ -145,11 +145,11 @@ File Create: /System/Volumes/Data/Users/user/Desktop/myfile.zip
 ```
 
 ## 4. Linux
-### 4.1 Process Ancestry
+### 4.1. Process Ancestry
 
 This may differ depending on what Linux distribution is running. More testing needed.
 
-#### 4.1.1 Interactive Shell
+#### 4.1.1. Interactive Shell
 ```
 Grandparent Process Path: /opt/CrowdStrike/falcond<sensor-version>
 Grandparent Process CommandLine: /opt/CrowdStrike/falcond
@@ -164,7 +164,7 @@ Process CommandLine: *user input dependent*
 
 ```
 
-#### 4.1.2 Run Script
+#### 4.1.2. Run Script
 ```
 Parent Process Path: /opt/CrowdStrike/falcon-sensor<sensor-version>
 Parent Process CommandLine: falcon-sensor
@@ -180,7 +180,7 @@ Example CommandLine:
 /bin/bash -c #!/bin/bash # SYNOPSIS # Run a bash script with specified command line and timeout # DESCRIPTION # CrowdStrike Real Time Re /bin/bash echo "Hello from the otherside!"
 ```
 
-#### 4.1.3 Put File
+#### 4.1.3. Put File
 ```
 Grandparent Process Path: /opt/CrowdStrike/falcond<sensor-version>
 Grandparent Process CommandLine: /opt/CrowdStrike/falcond
