@@ -12,7 +12,7 @@ Live Query, which is Carbon Black's "wrapper" around osquery which lets you laun
 *.conferdeploy.net
 ```
 ## 2. Windows
-### 2.1 Process Ancestry
+### 2.1. Process Ancestry
 
 Carbon Black Cloud has two (2) distinct process ancestry depending on the feature used: Live Response or Live Query (osquery).
 
@@ -117,11 +117,7 @@ For osqueryi, $CLSID refers to a CLSID that is probably tied/linked to the versi
 
 For osqueryi, $QUERY refers to the query that is being executed through Live Query. For instance, it could be: SELECT * FROM file WHERE path LIKE "/root/%";
 
-## 4. Sigma
-
-The following Sigma rule(s) can be used to detect the use of Carbon Black Cloud Live Response or Live Query functionalities on a system.
-
-## 5. References
+## 4. References
 
 https://docs.vmware.com/en/VMware-Carbon-Black-Cloud/services/cbc-sensor-installation-guide/GUID-06D2CB73-968A-466E-BD69-B7480CBA800A.html
 https://docs.vmware.com/en/VMware-Carbon-Black-Cloud/services/carbon-black-cloud-user-guide/GUID-7399B083-D65C-40ED-A831-460F7216F748.html#:~:text=To%20use%20Live%20Response%2C%20users,policy%20with%20Live%20Response%20enabled.&text=Click%20Enforce%2C%20then%20Policies.,Select%20a%20policy%20group.
