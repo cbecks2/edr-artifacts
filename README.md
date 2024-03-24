@@ -40,3 +40,5 @@ On Linux, this can be done by using the new Sysmon for Linux. Granted that the i
 # Contributions
 
 As many of this products are expensive and do not have free trials (for good reason!), this project is best effort and community driven. All suggestions and commits to improve it are welcomed and encouraged.
+
+Even more so if you have access to macOS and are able to help document the EDRs that are already part of the project, but didn't go through any macOS testing!
