@@ -104,4 +104,25 @@ This file seems to "log" when a Remote Shell session is initialized. Exerpt from
 [2024-03-23 18:03:40.643725] [2344] [info] Sending shell master pty fd to network
 ```
 
+#### 3.3.2. Remote Script Orchestration
+
+Scripts that are executed via RSO will be dropped in the following folder. Though it looks like they get deleted once the RSO task completes (and they get executed).
+```
+/opt/sentinelone/addons/data/SentinelRSO/Script
+```
+Traces of the RSO execution are also present in the log below.
+```
+/opt/sentinelone/log/agent.log
+```
+
+Exerpt from that log:
+```
+[2024-03-24 00:32:59.658556] [2344] [info] Received addon ipc: addon name: SentinelRSO, trace id: $REMOVED.
+[2024-03-24 00:32:59.660245] [7625] [info] addon SentinelRSO trace id $REMOVED: downloading resources
+[2024-03-24 00:33:00.618439] [7625] [info] addon SentinelRSO trace id $REMOVED: successfully downloaded resources
+[2024-03-24 00:33:00.652020] [7625] [info] addon SentinelRSO trace id $REMOVED: addon-host running with pid 41081
+[2024-03-24 00:33:12.242244] [7625] [info] addon SentinelRSO trace id $REMOVED: addon-host exited with 0
+[2024-03-24 00:33:12.242284] [7625] [info] addon SentinelRSO trace id $REMOVED: executed successfully!
+```
+
 ## 4. References
