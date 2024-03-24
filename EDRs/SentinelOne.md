@@ -8,7 +8,7 @@ SentinelOne offers two (2) features to interact with an endpoint:
 
 ## 2. Windows
 ### 2.1. Process Ancestry
-#### 2.1.1. Remote Shell (RSH)
+#### 2.1.1. Remote Shell
 
 When you start a Remote Shell session on an endpoint, on Windows, a user called SentinelRSHUser gets used. Therefore, it is easy to search for any command that may have been executed through Remote Shell. Simply look for any process launched by that user (e.g.: DESKTOP\SentinelRSHUser).
 ```
@@ -26,7 +26,7 @@ Child Process CommandLine - *user input dependent*
 ```
 $VERSION refers to the version of the SentinelOne Agent that is installed, e.g.: 23.1.5.886.
 
-#### 2.1.2. Remote Script Orchestration (RSO)
+#### 2.1.2. Remote Script Orchestration
 ```
 Grandparent Process Path - C:\Program Files\SentinelOne\Sentinel Agent $VERSION\SentinelAgent.exe
 Grandparent Process CommandLine - "C:\Program Files\SentinelOne\Sentinel Agent $VERSION\SentinelAgent.exe"
@@ -54,7 +54,7 @@ Inferring that there may be a way to set that setting to "true" and therefore, g
 
 ## 3. Linux
 ### 3.1. Process Ancestry
-#### 3.1.1. Remote Shell (RSH)
+#### 3.1.1. Remote Shell
 
 When you start a Remote Shell session on an endpoint, you get directly dropped in a shell. Which one: bash, sh, etc. may depend on the system configuration. More testing is required to see if alternate shells (ex: zsh) are supported.
 ```
