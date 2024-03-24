@@ -30,6 +30,12 @@ The initial release of this project on 2024/03/xx covers the following EDRs:
   - Windows
   - macOS
 
+# Analysis
+
+The information that was collected and documented in this repository has been obtained in various ways. Mainly by using other event telemetry sources to observe what each EDR was doing. On Windows, this can be done via Sysmon and/or enabling Event ID 4688 (Process Creation) with the commandline logging enabled.
+
+On Linux, this can be done by using the new Sysmon for Linux. Granted that the information it returned could be limited and in some scenarios, a second EDR was deployed on the host to observe the behavior of the first one.
+
 # Contributions
 
 As many of this products are expensive and do not have free trials (for good reason!), this project is best effort and community driven. All suggestions and commits to improve it are welcomed and encouraged.
