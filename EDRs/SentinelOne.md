@@ -8,7 +8,6 @@ SentinelOne offers two (2) features to interact with an endpoint:
 
 ## 2. Windows
 ### 2.1. Process Ancestry
-
 #### 2.1.1. Remote Shell (RSH)
 
 When you start a Remote Shell session on an endpoint, on Windows, a user called SentinelRSHUser gets used. Therefore, it is easy to search for any command that may have been executed through Remote Shell. Simply look for any process launched by that user (e.g.: DESKTOP\SentinelRSHUser).
@@ -41,7 +40,6 @@ Process CommandLine - "C:\WINDOWS\system32\WindowsPowerShell\v1.0\powershell.exe
 $RSO_SCRIPT refers to the name of the script that is being launched through RSO, e.g.: Get-WindowsServices.ps1.
 
 ### 2.2. Host Artifacts
-
 #### 2.2.1. Remote Shell
 ```
 C:\ProgramData\Sentinel\rshTranscripts
@@ -55,7 +53,32 @@ agent.remoteShell.logTranscript false
 Inferring that there may be a way to set that setting to "true" and therefore, get the rshTranscripts folder populated with the actual Remote Shell transcript logs.
 
 ## 3. Linux
-
 ### 3.1. Process Ancestry
+#### 3.1.1. Remote Shell (RSH)
+
+When you start a Remote Shell session on an endpoint, you get directly dropped in a shell. Which one: bash, sh, etc. may depend on the system configuration. More testing is required to see if alternate shells (ex: zsh) are supported.
+```
+Parent Process Path - /opt/sentinelone/bin/sentinelone-agent
+Parent Process CommandLine - /opt/sentinelone/bin/sentinelone-agent s1-scanner
+
+Process Path - /usr/bin/bash
+Process CommandLine - /usr/bin/bash /bin/bash
+
+Child Process Path - *user input dependent*
+Child Process CommandLine - *user input dependent*
+```
+
+### 3.2. Hosts Artifacts
+#### 3.2.1. Remote Shell
+
+```
+/opt/sentinelone/log/scanner.log
+```
+This file seems to "log" when a Remote Shell session is initialized. Exerpt from the log:
+```
+[2024-03-23 18:03:40.627153] [2344] [info] Starting a remote shell session with user 'root'
+[2024-03-23 18:03:40.643618] [2344] [info] Successfully marked remote shell as judgeable group
+[2024-03-23 18:03:40.643725] [2344] [info] Sending shell master pty fd to network
+```
 
 ## 4. References
