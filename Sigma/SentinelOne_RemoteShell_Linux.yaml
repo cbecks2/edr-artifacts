@@ -1,0 +1,28 @@
+title: SentinelOne Remote Shell Usage on Linux
+id: 624a027d-6805-4f56-88c7-04e826435959
+status: experimental
+description: This rule detects the usage of Remote Shell commands from SentinelOne on a Linux host.
+references:
+    - TO BE ADDED
+tags:
+    - attack.execution
+    - attack.t1059
+author: SecurityAura
+date: 2024/03/23
+logsource:
+    category: process_creation
+    product: linux
+detection:
+    selection:
+        ParentImage|contains|all: 
+          - 'C:\Program Files\SentinelOne\Sentinel Agent'
+          - 'SentinelRemoteShellHost.exe'
+        Image|endswith: 'powershell.exe'
+    condition: selection
+fields:
+    - CommandLine
+    - TargetImage
+    - TargetCommandLine
+falsepositives:
+    - Legitimate usage of SentinelOne Remote Shell on an endpoint
+level: informational
