@@ -26,7 +26,7 @@ https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/confi
 
 ## 2. Windows
 
-### 2.1 Process Ancestry
+### 2.1. Process Ancestry
 
 The process ancestry for Defender for Endpoint depends on what the uploaded and executed PowerShell script does on the endpoint. Will it call external processes/binaries, or is it pure inline PowerShell (e.g.: cmdlet). In both situations, the main "process commandline" that interest us is the same. However, in situations where the script calls external processes/binaries, that "main" process will become the parent process in your queries/search.
 ```
@@ -56,7 +56,7 @@ Research into the $CLSID of PowerShell.exe is still on-going.
 
 Research into the $POWERSHELL_SCRIPT_HASH of PowerShell.exe is still on-going.
 
-### 2.2 Host Artifacts
+### 2.2. Host Artifacts
 
 When a script is executed from Live Response, Defender for Endpoint will create a Transcript log on the endpoint at the following path:
 ```
