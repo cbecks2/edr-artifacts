@@ -58,6 +58,9 @@ Inferring that there may be a way to set that setting to "true" and therefore, g
 
 When you start a Remote Shell session on an endpoint, you get directly dropped in a shell. Which one: bash, sh, etc. may depend on the system configuration. More testing is required to see if alternate shells (ex: zsh) are supported.
 ```
+Grandparent Process Path - /opt/sentinelone/bin/sentinelone-agent
+Grandparent Process CommandLine - /opt/sentinelone/bin/sentinelone-agent s1-orchestrator
+
 Parent Process Path - /opt/sentinelone/bin/sentinelone-agent
 Parent Process CommandLine - /opt/sentinelone/bin/sentinelone-agent s1-scanner
 
@@ -67,6 +70,26 @@ Process CommandLine - /usr/bin/bash /bin/bash
 Child Process Path - *user input dependent*
 Child Process CommandLine - *user input dependent*
 ```
+
+#### 3.1.2. Remote Script Orchestration
+```
+Grandparent Process Path - /opt/sentinelone/bin/sentinelone-agent
+Grandparent Process CommandLine - /opt/sentinelone/bin/sentinelone-agent s1-orchestrator
+
+Parent Process Path - /opt/sentinelone/bin/sentinelone-agent
+Parent Process CommandLine - /opt/sentinelone/bin/sentinelone-agent s1-agent
+
+Process Path - /opt/sentinelone/bin/addon-host
+Process CommandLine - /opt/sentinelone/bin/addon-host s1-addon /proc/$PID/fd/$FDID
+
+Child Process Path - /opt/sentinelone/addons/data/SentinelRSO/Script/$SCRIPT_NAME
+Child Process CommandLine - /opt/sentinelone/addons/data/SentinelRSO/Script/$SCRIPT_NAME
+```
+As of writing this, research into the $PID for addon-host is still on-going.
+
+As of writing this, research into the $FDID for addon-host is still on-going.
+
+The $SCRIPT_NAME in the Child Process Path refers to the name of the script that was executed via RSO. For instance, the script is called ps.sh for the default SentinelOne Remote Ops "Process List".
 
 ### 3.2. Hosts Artifacts
 #### 3.2.1. Remote Shell
