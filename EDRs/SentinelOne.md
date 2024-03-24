@@ -126,3 +126,7 @@ Exerpt from that log:
 ```
 
 ## 4. References
+
+https://assets.sentinelone.com/prod/sentinel-one-remote--1
+
+https://www.sentinelone.com/resources/sentinelone-remote-script-orchestration/
