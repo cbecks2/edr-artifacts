@@ -7,9 +7,9 @@ This goal of this project is to assist incident responders, detection engineers,
 
 This repo is mostly split in two sections: EDRs and Sigma.
 
-The EDRs folder contains a single markdown (.md) file for each EDR with information about this product's shell and response functionnalities.
+The EDRs folder contains a single markdown (.md) file for each EDR with information about this product's shell and response functionalities.
 
-The Sigma folder contains all the Sigma rules related to the usage of these products' shell and response functionnalities.
+The Sigma folder contains all the Sigma rules related to the usage of these products' shell and response functionalities.
 
 # Supported EDRs
 
