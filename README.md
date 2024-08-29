@@ -13,7 +13,7 @@ The Sigma folder contains all the Sigma rules related to the usage of these prod
 
 # Supported EDRs
 
-The initial release of this project on 2024/09/xx covers the following EDRs:
+The initial release of this project on 2024/09/30 covers the following EDRs:
 - Carbon Black Cloud (CBC)
   - Windows
   - Linux 
