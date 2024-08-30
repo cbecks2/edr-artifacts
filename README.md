@@ -1,7 +1,15 @@
 # edr-artifacts
 This repository is meant to catalog network and host artifacts associated with various EDR products "shell" and response functionalities.
 
-This goal of this project is to assist incident responders, detection engineers, and threat hunters in finding signs of non-approved EDRs being leveraged in their environment outside enumerating installed software.
+This goal of this project is to assist incident responders, detection engineers, and threat hunters in finding signs of non-approved EDRs being leveraged in their environment outside enumerating installed software. 
+
+There have been several instances where threat actors have introduced their own Endpoint Detection and Response (EDR) solutions for Command and Control (C2) purposes, each with its own nuances:
+
+- Utilizing EDR trial versions.
+- Conducting fraudulent non-trial setups using virtual payment methods.
+- Repurposing compromised victim EDR consoles for malicious activities against other organizations.
+
+We also recognize that not all security teams have the same level of visibility, so collecting both host and network signals might help fill some niche usecases.
 
 # Repository Architecture
 
